@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IngR2D2 | Archivio tecnico galattico</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1118;
+      color: #edf4fa;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 55px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #132b40, #101820);
+      border-bottom: 1px solid #29445b;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #76d7ff;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+
+    header p { color: #c0d2df; }
+
+    main {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #131e29;
+      border: 1px solid #2b4052;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .card h2 { color: #76d7ff; }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #9aabba;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🤖 IngR2D2</h1>
+    <p>Il tuo archivio tecnico galattico.</p>
+    <p>Appunti, schemi, disegni e risorse per studenti.</p>
+  </header>
+
+  <main>
+    <h2>Esplora l'archivio</h2>
+    <div class="grid">
+      <section class="card">
+        <h2>📐 Disegno tecnico</h2>
+        <p>Tavole, esercizi e disegni da consultare e scaricare.</p>
+      </section>
+      <section class="card">
+        <h2>📚 Appunti e dispense</h2>
+        <p>Materiali scolastici organizzati per materia.</p>
+      </section>
+      <section class="card">
+        <h2>🗺️ Schemi e mappe</h2>
+        <p>Riassunti, diagrammi e mappe concettuali.</p>
+      </section>
+      <section class="card">
+        <h2>⚙️ Progetti tecnici</h2>
+        <p>Progetti, esercitazioni e risorse utili.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    IngR2D2 · Un archivio in continua costruzione 🚀
+  </footer>
+</body>
+</html>
