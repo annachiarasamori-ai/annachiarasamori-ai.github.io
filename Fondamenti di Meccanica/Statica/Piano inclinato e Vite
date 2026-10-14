@@ -1,0 +1,78 @@
+
+## 1. Il piano inclinato
+
+![[Pasted image 20261013104704.png|438]]
+
+- Si rappresenta con un **triangolo rettangolo** [fig. D4.13a]:
+    - ipotenusa = piano inclinato
+    - cateto b = base
+    - cateto h = altezza
+
+**Forza motrice F parallela al piano inclinato** [fig. D4.13b]:
+
+$$F = P \cdot \sin\alpha \qquad k = \frac{1}{\sin\alpha}$$
+
+**Forza motrice F parallela alla base b** [fig. D4.12c]:
+
+$$F = P \cdot \tan\alpha \qquad k = \frac{1}{\tan\alpha}$$
+
+**Pendenza** i (rapporto altezza/base):
+
+$$i = \frac{h}{b} = \tan\alpha$$
+
+## 2. La vite
+
+- Gli elementi filettati servono come:
+    - organi di collegamento
+    - componenti per la trasmissione di moto e forza (es. vite di una morsa)
+- In entrambi i casi **non si può trascurare l'attrito**:
+    - tra i filetti di vite e dado
+    - per strisciamento tra dado e rosetta [fig. D4.15]
+- La vite deriva dal piano inclinato e ha uno dei **vantaggi più elevati** in campo meccanico.
+
+**Vantaggio** (forza resistente F<sub>R</sub> / forza di serraggio o motrice F<sub>M</sub>):
+
+$$\frac{F_R}{F_M} = k = \frac{2\pi \cdot b}{p}$$
+
+dove:
+
+- b = braccio di applicazione della forza di serraggio
+- p = passo della filettatura
+
+### Vite di collegamento
+
+![[Pasted image 20261013104821.png|382]]
+
+Per conoscere con certezza la forza F trasmessa si usa una **chiave dinamometrica**, che controlla il momento torcente M<sub>t</sub> trasmesso al dado:
+
+$$M_t = M_{t1} + M_{t2}$$
+
+- M<sub>t1</sub>: trasmette la forza F
+- M<sub>t2</sub>: vince l'attrito tra dado e rosetta
+
+$$M_{t1} = F \cdot \frac{d_2}{2} \cdot \tan(\alpha + \varphi) \qquad M_{t2} = F \cdot \frac{D_m}{2} \cdot f_2$$
+
+dove:
+
+- F = forza assiale esercitata dalla vite
+- $\varphi$ = angolo di attrito tra i filetti
+- d<sub>2</sub> = diametro medio di filettatura
+- $\alpha$ = angolo dell'elica
+- f<sub>2</sub> = coefficiente di attrito tra dado e rosetta
+
+**Angoli dell'elica e di attrito:**
+
+$$\alpha = \arctan\frac{p}{\pi \cdot \frac{d}{2}} \qquad \varphi = \arctan\frac{f_1}{\cos\frac{\vartheta}{2}}$$
+
+dove:
+
+- p = passo della filettatura
+- $\vartheta$ = angolo del profilo (filettature ISO: $\vartheta$ = 60°)
+- f<sub>1</sub> = coefficiente di attrito tra i filetti di vite e dado
+
+### Vite di manovra
+
+Manca il termine dovuto all'attrito tra dado e rosetta:
+
+$$M_t = F \cdot \frac{d_2}{2} \cdot \tan(\alpha + \varphi)$$
+
