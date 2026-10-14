@@ -1,0 +1,736 @@
+
+
+---
+
+## 0. Introduzione concetti di base
+
+### 0.1 Perché ripassiamo le sollecitazioni semplici?
+
+Nella pratica un pezzo meccanico (albero, trave, bullone, gancio) raramente lavora in un solo modo: spesso è **tirato e piegato insieme**, oppure **piegato e torto insieme**. Queste si chiamano **sollecitazioni composte**.
+
+Per capirle bisogna prima conoscere bene le sollecitazioni **semplici**, cioè quelle in cui il pezzo lavora in un solo modo alla volta. Le sollecitazioni composte sono, in sostanza, **la somma di quelle semplici**.
+
+### 0.2 Le 5 sollecitazioni semplici
+
+| Sollecitazione | Cosa succede al pezzo | Esempio concreto |
+|---|---|---|
+| **Trazione** | viene *tirato*, si allunga | cavo di una gru, tirante, catena |
+| **Compressione** | viene *schiacciato*, si accorcia | pilastro, colonna, punzone di una pressa |
+| **Taglio** | due forze vicine e opposte cercano di *tranciarlo* | bullone di un giunto, cesoia, perno |
+| **Flessione** | viene *piegato* | trave, mensola, asse di un carrello |
+| **Torsione** | viene *torto* | albero motore, chiave a tubo, cacciavite |
+
+### 0.3 Concetto fondamentale: forza e sforzo (tensione)
+
+La **forza** da sola non basta a dire se un pezzo si rompe.
+
+> Pensa a una persona di 70 kg: se sta sui tacchi a spillo sfonda il parquet, se sta sulle racchette da neve no. **La forza è la stessa, cambia la superficie** su cui si distribuisce.
+
+![[Pasted image 20261013110929.png|571]]
+#### Tensioni
+Per questo si usa lo **sforzo** (o **tensione**): la forza divisa per la superficie del pezzo.
+- **σ** (sigma) = sforzo **normale**: la forza è perpendicolare alla sezione (trazione, compressione, flessione)
+- **τ** (tau) = sforzo **tangenziale**: la forza è parallela alla sezione (taglio, torsione)
+
+#### Deformazioni
+Le deformazioni possono essere:
+- *parallele* a un asse, e sono indicate con la lettera **ε**;
+- *angolari* rispetto a due assi, sono dette scorrimenti e indicate con la lettera **γ**
+
+### 0.4 Unità di misura
+
+| Grandezza | Simbolo | Unità che useremo |
+|---|---|---|
+| Forza | F | **N** (newton) – 1 kN = 1000 N |
+| Lunghezza | L | **mm** |
+| Area | A | **mm²** |
+| Sforzo | σ, τ | **N/mm²** = **MPa** (megapascal) |
+| Momento | M | **N·mm** (1 N·m = 1000 N·mm) |
+
+> **Regola d'oro:** lavorare sempre in **N e mm**. Se la forza è in kN, moltiplicare per 1000. Se il momento è in N·m, moltiplicare per 1000.
+
+### 0.5 Materiale: valori noti
+
+| Materiale                   | Modulo di Young E | Sforzo di snervamento Re         |
+| --------------------------- | ----------------- | -------------------------------- |
+| Acciaio da costruzione S235 | 210 000 MPa       | 235 MPa                          |
+| Acciaio S355                | 210 000 MPa       | 355 MPa                          |
+| Alluminio                   | 70 000 MPa        | 100–250 MPa (dipende dalla lega) |
+| Ghisa                       | 100 000 MPa       | – (materiale fragile)            |
+
+### 0.6 Lo sforzo ammissibile e il coefficiente di sicurezza
+
+Non si fa mai lavorare un pezzo al limite: si lascia un **margine di sicurezza**.
+
+$$\sigma_{amm} = \frac{\sigma_{snervamento}}{n}$$
+
+dove **n** è il coefficiente di sicurezza (di solito tra 1,5 e 3).
+
+> **Esempio:** acciaio S235, Re = 235 MPa, n = 1,5 → σamm ≈ 160 MPa.
+
+**Verifica di un pezzo:** si calcola lo sforzo reale e si controlla che sia **minore o uguale** a quello ammissibile.
+
+$$\sigma_{reale} \le \sigma_{amm}$$
+
+Per il taglio e la torsione si usa lo sforzo tangenziale ammissibile, circa il 60% di quello normale:
+
+$$\tau_{amm} \approx 0{,}6 \cdot \sigma_{amm}$$
+
+### 0.6 Allungamento
+
+**Allungamento totale** = differenza fra la lunghezza iniziale l<sub>0</sub> e la lunghezza finale l<sub>1</sub> dovuta agli sforzi applicati al corpo:
+$$\Delta l = l_1 - l_0$$
+![[Pasted image 20261013111741.png|424]]
+
+**Allungamento unitario** (cioè riferito alla lunghezza unitaria) = deformazione ε 
+Si calcola con la seguente relazione:
+$$\varepsilon = \frac{l_1 - l_0}{l_0} = \frac{\Delta l}{l_0}$$
+
+---
+## 1. TRAZIONE
+
+### 1.1 Definizione
+
+Un pezzo è sollecitato a **trazione** quando due forze **uguali e opposte** lo **tirano** lungo il suo asse. Il pezzo **si allunga** e **si assottiglia** leggermente.
+
+![[Pasted image 20261013112159.png|417]]
+
+**Esempi pratici:** cavo di sollevamento di una gru, tirante di un ponte sospeso, catena, vite che serra due lamiere, fune di un ascensore.
+
+### 1.2 Formula dello sforzo di trazione
+
+
+$$\sigma = \frac{F}{A}$$
+
+![[Pasted image 20261013113320.png|355]]
+
+- **σ** = sforzo (MPa = N/mm²)
+- **F** = forza (N)
+- **A** = area della sezione resistente (mm²)
+
+**Aree delle sezioni più comuni:**
+
+| Sezione | Area |
+|---|---|
+| Rettangolo (base b, altezza h) | A = b · h |
+| Cerchio pieno (diametro d) | A = π · d² / 4 (circa 0,785 · d²) |
+| Tubo (D esterno, d interno) | A = π · (D² − d²) / 4 |
+
+**Messaggio chiave:** a parità di forza, **più la sezione è grande, meno il pezzo è sforzato**. Raddoppiando l'area, lo sforzo si dimezza.
+
+### 1.5 Legge di Hooke
+
+**Campo elastico** = quando tolto il carico spariscono le deformazioni e il materiale non si rovina.
+Esiste una dipendenza lineare tra sforzi e deformazioni; 
+La relazione che esprime tale concetto è la seguente:
+$$\sigma = E \cdot \varepsilon$$
+**E** = **modulo di elasticità normale **(o modulo di Young)
+  
+Allora possiamo riscrivere la formula dell'allungamento anche in termini di modulo di elasticità:
+$$\sigma = \frac{F}{A}$$
+
+$$\varepsilon = \frac{\sigma}{E} = \frac{F}{A \cdot E}$$
+
+$$\Delta l = \varepsilon \cdot l_0 = \frac{F \cdot l_0}{A \cdot E}$$
+
+#### Diagramma delle sollecitazioni
+
+![[Pasted image 20261014084217.png|531]]
+
+### Il diagramma sforzo-deformazione (prova di trazione)
+
+Per conoscere un materiale si fa la **prova di trazione**: un provino viene tirato sempre di più fino alla rottura, e si registra il diagramma sforzo (σ) – deformazione (ε).
+
+![[Pasted image 20261009145930.png]]
+
+
+| Fase                                                      | Cosa succede                                                                         | Se tolgo la forza...                                                        |
+| :-------------------------------------------------------- | :----------------------------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| **Fase elastica**                                         | Vale la legge di Hooke (retta nel diagramma). Allungamento proporzionale alla forza. | Il pezzo **torna alla lunghezza iniziale** e non si rovina                  |
+| punto di<br>**SNERVAMENTO** (Re)<br>(punto C nel grafico) | Il materiale comincia a deformarsi in modo permanente.                               | Resta una deformazione permanente.                                          |
+| **Fase plastica**                                         | Grandi deformazioni permanenti con forza quasi costante o poco crescente.            | Il pezzo **resta deformato** (si rovina), se arriva fino in fondo si spezza |
+| punto di<br>**ROTTURA** (Rm)                              | Il materiale si rompe.                                                               |                                                                             |
+
+
+**Punti importanti del diagramma:**
+
+- **Re** (limite di snervamento): sforzo oltre il quale il materiale **si deforma in modo permanente**. È il valore di riferimento per il progetto → $σ_{snervamento}$
+- **Rm** (resistenza a rottura): massimo sforzo che il materiale sopporta prima di spezzarsi →  $σ_{rottura}$
+
+
+**Regola di progetto:** un pezzo meccanico deve lavorare **sempre in fase elastica**, quindi con sforzo ben sotto Re 
+per questo si usa $σ_{ammissibile}$ 
+$n$ è dato da progetto, solitamente $1.5<n<2$
+
+$$\sigma_{amm} = \frac{\sigma_{snervamento}}{n}$$
+
+$$\sigma<\sigma_{amm} < \sigma_{snerv} < \sigma_{rottura}$$
+
+**Materiali duttili e fragili:**
+- **Duttile** (acciaio dolce, alluminio, rame): si deforma molto prima di rompersi, "avvisa" prima di cedere.
+- **Fragile** (ghisa, vetro, ceramica): si rompe di colpo, senza deformarsi molto.
+
+#### Esempio
+Determinare il modulo di elasticità normale $E$ dell'acciaio di una provetta di 12 mm di diametro e lunga inizialmente 100 mm che, sottoposta a un carico di trazione di 5400 N, si è allungata di 0,023 mm.
+
+Dalle relazioni [H1.3], [H1.4] e [H1.5] si ottiene:
+
+$$\varepsilon = \frac{F}{A \cdot E} = \frac{\Delta l}{l}$$
+
+quindi si avrà:
+
+$$E = \frac{F \cdot l}{A \cdot l} = \frac{5400 \cdot 100}{\frac{12^2}{4} \cdot 3{,}14 \cdot 0{,}023} = 207600\ \frac{\text{N}}{\text{mm}^2}$$
+
+### 1.6 Verifica e progetto a trazione
+
+| Cosa voglio fare | Formula |
+|---|---|
+| **Verifica**: il pezzo regge? | σ = F / A ≤ σamm |
+| **Progetto**: che sezione serve? | A ≥ F / σamm |
+| **Carico massimo**: quanta forza regge? | F ≤ σamm · A |
+
+---
+
+## 2. COMPRESSIONE
+
+### 2.1 Definizione
+
+Un pezzo è sollecitato a **compressione** quando due forze uguali e opposte lo **schiacciano** lungo il suo asse. Il pezzo **si accorcia** e **si allarga** leggermente.
+
+![[Pasted image 20261013115636.png|437]]
+
+**Esempi pratici:** pilastri e colonne di un edificio, piedi di un tavolo, punzone di una pressa, gambe di un'impalcatura, pistone.
+
+![[Pasted image 20261001191502.png|318]]
+
+### 2.2 Formule
+
+**Sono identiche alla trazione**, cambia solo il verso della forza:
+
+$$\sigma = \frac{F}{A} $$
+![[Pasted image 20261013124708.png|222]]
+
+#### Diagramma delle sollecitazioni
+
+![[Pasted image 20261014084337.png|526]]
+
+---
+
+## 3. TAGLIO
+
+### 3.1 Definizione
+
+Un pezzo è sollecitato a **taglio** quando due forze **uguali e opposte**, ma **non sulla stessa retta e molto vicine tra loro**, agiscono **perpendicolarmente** all'asse del pezzo e cercano di **farne scorrere una parte sull'altra**, fino a **tranciarlo**.
+
+![[Pasted image 20261013124258.png|498]]
+
+![[Pasted image 20261001191536.png|361]]
+
+**Esempi pratici:**
+- **Forbici e cesoie**: le due lame tagliano la lamiera.
+- **Bullone o perno** che unisce due piastre tirate in direzioni opposte.
+- **Rivetto** di un giunto.
+- **Linguetta** su un albero.
+- **Punzonatrice** che fora una lamiera.
+
+### 3.2 Formula dello sforzo di taglio
+
+$$\tau = \frac{F}{A}$$
+
+![[Pasted image 20261013124520.png|142]]
+
+- **τ** = sforzo tangenziale (MPa)
+- **F** = forza di taglio (N), *a volte indicata con T*
+- **A** = area della sezione che viene tranciata (mm²)
+
+La differenza rispetto alla trazione è che qui la forza è **parallela alla sezione**, non perpendicolare.
+
+**Verifica:** 
+$τ ≤ τ_{amm}$
+con $τ_{amm} ≈ 0,6 · σ_{amm}$
+
+#### Diagramma delle sollecitazioni
+
+![[Pasted image 20261014085450.png|411]]
+
+---
+
+## 4. FLESSIONE
+
+### 4.1 Prerequisito: il concetto di MOMENTO di una forza
+
+Il **momento** di una forza misura **la sua capacità di far ruotare** un corpo attorno a un punto.
+
+![[Pasted image 20261013131445.png|431]]
+
+$$M = F \cdot b$$
+
+- **M** = momento (N·mm)
+- **F** = forza (N)
+- **b** = **braccio**: distanza **perpendicolare** tra il punto di rotazione e la retta d'azione della forza (mm)
+
+> **Esempio concreto – la chiave inglese:** per svitare un dado duro, non spingi più forte: **allunghi il braccio** (usi una chiave più lunga o un tubo). A parità di forza, braccio più lungo = momento più grande.
+>
+> Chiave lunga 250 mm, spingo con 100 N → M = 100 · 250 = 25 000 N·mm = **25 N·m**.
+> Con un tubo che porta il braccio a 500 mm → M = 50 N·m. **Il doppio, con la stessa fatica.**
+
+### 4.2 Definizione di flessione
+
+Un pezzo è sollecitato a **flessione** quando le forze applicate sono **perpendicolari al suo asse** e tendono a **piegarlo**. Tipicamente si parla di **travi**.
+
+**Esempi pratici:** trave di un solaio, tavola di un ponteggio, asse di un carrello, albero con un ingranaggio montato, trampolino, ala di un aereo.
+
+### 4.3 Che cosa succede dentro la trave
+
+Quando una trave si piega, **le fibre non lavorano tutte allo stesso modo**:
+
+![[Pasted image 20261013132246.png|582]]
+
+- Le fibre **in alto** si accorciano (compressione).
+- Le fibre **in basso** si allungano (trazione).
+- In mezzo c'è l'**asse neutro**, dove lo sforzo è zero.
+- Lo sforzo è **massimo nelle fibre più lontane dall'asse neutro**, cioè sul bordo.
+
+> **Prova concreta:** piega un righello o un pezzo di polistirolo: dalla parte esterna della curva si "strappa", dalla parte interna si "schiaccia".
+
+### 4.4 Il momento flettente
+
+In ogni punto della trave le forze esterne creano un **momento flettente (Mf)**, che è la causa della flessione. Più il momento è grande, più la trave è sforzata. Dove il momento è massimo (**$M_{f MAX}$**) è il punto più critico: **lì si fa la verifica**.
+
+### 4.6 Formula dello sforzo di flessione
+
+$$\sigma = \frac{M_f}{W}$$
+
+- **σ** = sforzo massimo di flessione (MPa)
+- **Mf** = momento flettente massimo (N·mm)
+- **W** = **modulo di resistenza a flessione** della sezione (mm³)
+
+#### Perché lo sforzo di flessione è σ?
+
+![[Pasted image 20261013133317.png|210]]
+
+Perché le forze sono perpendicolari alla sezione.
+Il materiale tende a deformarsi perpendicolarmente alla sezione.
+
+#### Diagramma delle sollecitazioni
+
+![[Pasted image 20261014090440.png|356]]
+
+
+### **W modulo di resistenza a flessione**
+**W dipende solo dalla forma e dalle dimensioni della sezione.** Misura quanto la sezione è "brava" a resistere alla flessione.
+
+![[Pasted image 20261001192216.png]]
+
+### 4.7 Il messaggio chiave: conta l'ALTEZZA
+
+Nel rettangolo, l'altezza è al **quadrato**. Quindi **metterla bene fa una differenza enorme.**
+
+> **Esempio concreto – il tavolone di legno (4 × 8 cm):** appoggiato come ponte tra due sostegni.
+> - **Messo "in piedi"** (h = 8, b = 4): W = 4 · 8² / 6 = 42,7
+> - **Messo "di piatto"** (h = 4, b = 8): W = 8 · 4² / 6 = 21,3
+>
+> Stessa quantità di legno, ma messo in piedi è **2 volte più resistente**. Per questo le travi sono sempre più alte che larghe, e per questo i profilati industriali (IPE, HEA) hanno la forma a doppia T: **il materiale è concentrato lontano dall'asse neutro**, dove serve.
+
+
+### 4.8 Verifica e progetto a flessione
+
+### Momento flettente massimo
+
+- Lungo la trave il momento flettente $M_f$ **varia da sezione a sezione**
+- La tensione normale dovuta alla flessione è proporzionale al momento
+- A parità di sezione ($W$ costante), la tensione è massima dove $M_f$ è massimo:
+
+$$\sigma_{max} = \frac{M_{f,max}}{W}$$
+
+- Quindi **la verifica va fatta nella sezione in cui il momento è massimo** (sezione pericolosa): se la tensione è ammissibile lì, lo è in tutte le altre.
+
+$$\sigma_{max} = \frac{M_{f,max}}{W} \leq \sigma_{amm}$$
+
+- Il momento massimo si trova in genere:
+    - dove il taglio $T$ si annulla (o cambia segno);
+    - in corrispondenza di un carico concentrato;
+    - all'incastro, nel caso di una trave a mensola.
+
+
+| Cosa voglio fare | Formula |
+| --- | --- |
+| **Verifica** | $$\sigma = \frac{M_{f,max}}{W} \leq \sigma_{amm}$$ |
+| **Progetto** (che $W$ mi serve?) | $$W \geq \frac{M_{f,max}}{\sigma_{amm}}$$ |
+| **Momento massimo sopportabile** | $$M_f \leq \sigma_{amm} \cdot W$$ |
+
+---
+
+### **Esempio** trave sottoposta a flessione
+
+Calcolare la tensione unitaria massima nella mezzaria della trave (punto $M$) rappresentata nella [fig. H1.8]. La trave ha sezione rettangolare con base $b = 20\ \text{mm}$ e altezza $h = 50\ \text{mm}$.
+
+![[Pasted image 20261013134329.png|446]]
+
+Con l'equazione di equilibrio dei momenti rispetto al punto $B$ si ottiene:
+
+$$R_A \cdot 1000 - F \cdot 500 = 0$$
+
+$$R_A = \frac{F \cdot 500}{1000} = \frac{500 \cdot 500}{1000} = 250\ \text{N}$$
+
+Il momento flettente nel punto $M$ è:
+
+$$M_{f,max} = R_A \cdot 500 = 250 \cdot 500 = 125000\ \text{N} \cdot \text{mm}$$
+
+Da notare che in Meccanica si utilizza il millimetro e il momento flettente è espresso in $\text{N} \cdot \text{mm}$.
+
+Poiché la sezione è rettangolare, il modulo di resistenza a flessione vale:
+
+$$W_f = \frac{b \cdot h^2}{6} = \frac{20 \cdot 50^2}{6} = 8333{,}3\ \text{mm}^3$$
+
+La tensione massima si calcola come segue:
+
+$$\sigma = \pm\frac{M_{f,max}}{W_f} = \frac{125000}{8333{,}3} = 15\ \frac{\text{N}}{\text{mm}^2}$$
+
+$$\sigma_t = +15\ \frac{\text{N}}{\text{mm}^2} \qquad \sigma_c = -15\ \frac{\text{N}}{\text{mm}^2}$$
+
+
+
+---
+
+## 5. TORSIONE
+
+### 5.1 Definizione
+
+Un pezzo è sollecitato a **torsione** quando su di esso agisce un **momento che tende a farlo ruotare attorno al proprio asse**, mentre l'altra estremità è trattenuta. Il pezzo si **torce**, come uno strofinaccio che strizzi.
+
+![[Pasted image 20261013155031.png|343]]
+
+**Esempi pratici:** albero motore, albero di trasmissione, cacciavite, chiave a tubo, trapano, asse di una puleggia, molla a torsione, barra stabilizzatrice dell'auto.
+
+
+### 5.2 Il momento torcente
+
+Il **momento torcente (Mt)** è il momento che tende a torcere il pezzo attorno al suo asse. Si calcola come ogni momento (forza · braccio):
+
+$$M_t = F \cdot b$$
+
+![[Pasted image 20261013160009.png|499]]
+
+#### Braccio
+Il braccio è la **distanza tra la retta d’azione della forza e l’asse di rotazione** (misurata perpendicolarmente alla forza).
+
+| Sezione                                  | Braccio massimo            |
+| ---------------------------------------- | -------------------------- |
+| **Circolare piena** (diametro $d$)       | $$r_{max} = \frac{d}{2}$$  |
+| **Circolare cava** (diametri $D$ ed $d$) | $$r_{max} = \frac{D}{2}$$  |
+
+
+> **Esempio concreto:** serro un bullone con una chiave lunga 300 mm, applicando 200 N → Mt = 200 · 300 = 60 000 N·mm = **60 N·m**. È lo stesso che legge la chiave dinamometrica.
+
+### 5.4 Formula dello sforzo di torsione
+
+$$\tau = \frac{M_t}{W_t}$$
+
+- **τ** = sforzo tangenziale massimo (MPa)
+- **Mt** = momento torcente (N·mm)
+- **Wt** = **modulo di resistenza a torsione** (mm³)
+
+#### Perché lo sforzo di flessione è **τ**?
+![[Pasted image 20261013161246.png|211]]
+Perché le forze sono perpendicolari alla sezione.
+Il materiale tende a deformarsi parallelamente alla sezione.
+
+#### **τ massimo**
+Lo sforzo tangenziale è **massimo sulla superficie esterna** dell'albero e **zero al centro**: per questo gli alberi cavi sono efficienti (il materiale al centro lavora poco).
+
+### Diagramma delle sollecitazioni
+
+![[Pasted image 20261014091817.png|533]]
+
+*stessi segni della trazione e compressione*
+
+### **W modulo di resistenza a torsione**
+*E' diverso dal modulo di resistenza a flessione!!!*
+
+**W dipende solo dalla forma e dalle dimensioni della sezione.** Misura quanto la sezione è "brava" a resistere alla torsione.
+
+![[Pasted image 20261001192601.png]]
+
+> **Attenzione:** per l'albero pieno, Wt = **2 · W**. Non confondere il modulo a flessione (÷32) con quello a torsione (÷16).
+
+### 5.5 Verifica e progetto a torsione
+
+| Cosa voglio fare | Formula |
+|---|---|
+| **Verifica** | τ = Mt / Wt ≤ τamm |
+| **Progetto** (che Wt serve?) | Wt ≥ Mt / τamm |
+| **Diametro minimo (albero pieno)** | d ≥ ∛(16 · Mt / (π · τamm)) |
+
+---
+
+### **Esempio** rave sottoposta a torsione
+
+Un albero lungo $l = 100\ \text{mm}$, a sezione circolare piena con diametro $D = 30\ \text{mm}$ e lunghezza $l_{tot} = 200\ \text{mm}$ è sottoposto a torsione da un momento torcente $M_t = 120000\ \text{N} \cdot \text{mm}$.
+
+Calcolare la tensione massima
+
+Il modulo di resistenza a torsione [tab. H1.4] vale:
+
+$$W_t = \frac{\pi \cdot D^3}{16} = \frac{\pi \cdot 30^3}{16} = 5301\ \text{mm}^3$$
+
+La tensione tangenziale vale:
+
+$$\tau_{max} = \frac{M_t}{W_t} = \frac{120000}{5301} = 22{,}6\ \frac{\text{N}}{\text{mm}^2}$$
+
+
+---
+
+## 6. RIEPILOGO FINALE
+
+### 6.1 Tabella riassuntiva delle formule
+
+| Sollecitazione | Grandezza che agisce | Formula principale | Resistenza della sezione |
+|---|---|---|---|
+| **Trazione** | Forza assiale F (tira) | σ = F / A | Area A |
+| **Compressione** | Forza assiale F (schiaccia) | σ = F / A | Area A |
+| **Taglio** | Forza di taglio T | τ = T / A | Area A (sezione tranciata) |
+| **Flessione** | Momento flettente Mf | σ = Mf / W | Modulo di resistenza W |
+| **Torsione** | Momento torcente Mt | τ = Mt / Wt | Modulo di resistenza a torsione Wt |
+
+**Schema da ricordare:**
+
+> Per **forza** si divide per un'**area (mm²)**.
+> Per **momento** si divide per un **modulo di resistenza (mm³)**.
+> Il risultato è sempre uno **sforzo (MPa)** da confrontare con l'**ammissibile**.
+
+
+### 6.3 Ponte verso le sollecitazioni composte
+
+Nelle prossime lezioni vedremo che nella realtà i pezzi sono spesso sollecitati in più modi insieme:
+
+- **Flessione + torsione:** un albero con un ingranaggio, che trasmette potenza (torce) e sopporta il peso e la spinta dei denti (piega).
+- **Trazione (o compressione) + flessione:** un gancio di sollevamento, una colonna con carico fuori centro.
+- **Flessione + taglio:** una trave, dove oltre al momento c'è anche la forza di taglio.
+
+In tutti questi casi, ciò che sapete oggi vi serve per **calcolare ogni effetto separatamente** e poi **combinarli**.
+
+---
+
+## 7. REAZIONI VINCOLARI ED EQUILIBRIO STATICO
+
+### 7.1 Perché esistono le reazioni vincolari?
+
+Quando una trave o un pezzo è appoggiato o bloccato, i supporti impediscono che si muova liberamente. Per questo i vincoli esercitano sul pezzo delle forze chiamate **reazioni vincolari**.
+
+Le reazioni vincolari contrastano le forze applicate e permettono alla struttura di rimanere in equilibrio.
+
+**Esempio:** una trave appoggiata alle due estremità e caricata con una forza verso il basso riceve dai supporti due reazioni dirette verso l'alto.
+
+### Condizione di equilibrio
+
+Perché un corpo sia in equilibrio statico, non deve né traslare né iniziare a ruotare. In un problema piano si usano queste condizioni:
+
+- **Equilibrio delle forze orizzontali:**$$ 
+  \sum F_x = 0
+   $$
+- **Equilibrio delle forze verticali:**
+$$ 
+  \sum F_y = 0
+   $$
+
+- **Equilibrio dei momenti rispetto a un punto:**
+$$
+  \sum M = 0
+  $$
+
+Il simbolo $$\sum$$significa “somma di tutte le grandezze considerate”. Le forze e i momenti con verso opposto si assegnano con segno opposto.
+
+**Attenzione:** non basta che la somma delle forze sia zero; per evitare la rotazione deve essere zero anche la somma dei momenti.
+
+### Calcolo reazioni vincolari
+
+Procedura da seguire:
+1. Disegnare la trave e indicare tutte le forze applicate.
+2. Indicare le reazioni vincolari nei supporti, scegliendone il verso iniziale.
+3. Scrivere le equazioni di equilibrio sum(F_x=0), sum(F_y=0) e sum(M=0).
+4. Risolvere le equazioni per trovare le reazioni incognite.
+5. Usare le forze e le reazioni per calcolare le forze interne e il momento flettente.
+6. Calcolare gli sforzi e confrontarli con quelli ammissibili.
+
+Se una reazione risulta negativa, significa che il suo verso reale è opposto a quello ipotizzato nel disegno.
+
+### Esempio: trave appoggiata con forza al centro
+
+**Dati:**
+
+- Forza applicata:
+$$F=6\text{kN}=6000\text{N}$$ 
+- Distanza tra i supporti: 
+$$L=2000\,\text{mm}$$
+- La forza è applicata esattamente al centro.
+
+![[Pasted image 20261009152622.png|359]]
+
+Indichiamo con R_A la reazione del supporto sinistro e con R_B quella del supporto destro. Supponiamo entrambe dirette verso l'alto.
+
+![[Pasted image 20261009152713.png|360]]
+
+**Passo 1 – Equilibrio verticale**
+Prendendo positive le forze verso l'alto:$$
+\sum F_y=0
+$$$$
+R_A+R_B-F=0
+$$Quindi:
+$$R_A+R_B=F\,=6000\,\text{N}$$
+
+**Passo 2 – Equilibrio dei momenti**
+Scelgo un punto rispetto al quale calcolare i momenti.
+Calcoliamo i momenti rispetto al supporto A.
+$$
+\sum M_A=0$$
+![[Pasted image 20261009162443.png|483]]
+$$R_A\cdot 0+ R_B\cdot L-F\cdot\frac{L}{2}=0$$
+La reazione R_A non produce momento rispetto ad A perché il suo braccio è zero.
+
+$$R_B\cdot L-F\cdot\frac{L}{2}=0$$
+
+Ricaviamo R_B:
+$$R_B=\frac{F\cdot(L/2)}{L}=\frac{F}{2}$$
+
+$$R_B=3000\,\text{N}$$
+
+Dall'equilibrio verticale:
+
+$$R_A=F-R_B=6000-3000=3000\,\text{N}$$
+![[Pasted image 20261009154010.png|455]]
+**Risultato:** entrambe le reazioni valgono 3000N verso l'alto. 
+La loro somma è 6000N, uguale e contraria alla forza applicata.
+
+### Calcolo sforzo
+
+Una volta calcolate le reazioni, possiamo determinare il momento flettente massimo. In questo caso, essendo la forza al centro, il momento massimo si trova in mezzeria:
+
+$$
+M_{f,\max}=R_A\cdot\frac{L}{2}
+$$
+
+$$
+M_{f,\max}=3000\cdot1000
+=3\,000\,000\,\text{N·mm}
+$$
+
+
+Per un albero pieno di diametro d=60mm, il modulo di resistenza a flessione è:
+
+$$
+W=\frac{\pi d^3}{32}
+=\frac{\pi\cdot60^3}{32}
+\approx21\,206\,\text{mm}^3
+$$
+
+Lo sforzo massimo di flessione vale quindi:
+
+$$
+\sigma=\frac{M_{f,\max}}{W}
+=\frac{3\,000\,000}{21\,206}
+\approx141{,}5\,\text{MPa}
+$$
+
+Se lo sforzo ammissibile è \(160\,\text{MPa}\):
+
+$$
+141{,}5\,\text{MPa}<160\,\text{MPa}
+$$
+
+La verifica è soddisfatta.
+
+#### Diagramma delle sollecitazioni
+
+![[Pasted image 20261014091355.png|412]]
+
+---
+
+### Esempio sul dimensionamento (trazione)
+
+Dimensionare il lato $a$ di una trave a sezione quadrata piena, sottoposta a una forza di trazione $F = 45000\ \text{N}$. Il materiale è acciaio con tensione ammissibile $\sigma_{amm} = 120\ \frac{\text{N}}{\text{mm}^2}$.
+
+**Svolgimento**:
+
+Condizione di verifica a trazione:
+
+$$\sigma = \frac{F}{A} \leq \sigma_{amm}$$
+
+Area minima necessaria (progetto):
+
+$$A \geq \frac{F}{\sigma_{amm}} = \frac{45000}{120} = 375\ \text{mm}^2$$
+
+Per la sezione quadrata l'area vale $A = a^2$, quindi:
+
+$$a \geq \sqrt{\frac{F}{\sigma_{amm}}} = \sqrt{375} = 19{,}36\ \text{mm}$$
+
+Si adotta un valore unificato (arrotondato per eccesso):
+
+$$a = 20\ \text{mm}$$
+
+**Verifica con il lato adottato**
+
+$$A = a^2 = 20^2 = 400\ \text{mm}^2$$
+
+$$\sigma = \frac{F}{A} = \frac{45000}{400} = 112{,}5\ \frac{\text{N}}{\text{mm}^2} < \sigma_{amm} = 120\ \frac{\text{N}}{\text{mm}^2}$$
+
+La verifica è soddisfatta.
+
+---
+### Esempio sul dimensionamento (torsione)
+
+Un albero pieno di acciaio S235 trasmette un momento torcente $M_t = 200\ \text{N} \cdot \text{m}$.
+
+Calcolare il diametro minimo perché non si verifichi lo snervamento, usando un coefficiente di sicurezza $n = 1{,}5$.
+
+**Soluzione**:
+
+1. Conversione del momento torcente:
+$$M_t = 200\ \text{N} \cdot \text{m} = 200000\ \text{N} \cdot \text{mm}$$
+2. Tensione ammissibile a torsione:
+$$\tau_{amm} \approx 94\ \frac{\text{N}}{\text{mm}^2} = 94\ \text{MPa}$$
+3. Modulo di resistenza necessario:
+
+$$W_t \geq \frac{M_t}{\tau_{amm}} = \frac{200000}{94} = 2128\ \text{mm}^3$$
+
+4. Diametro minimo, da $W_t = \frac{\pi \cdot d^3}{16}$:
+
+$$d^3 \geq \frac{16 \cdot W_t}{\pi} = \frac{16 \cdot 2128}{3{,}14} = 10843\ \text{mm}^3$$
+
+$$d \geq \sqrt[3]{10843} = 22{,}1\ \text{mm}$$
+
+5. Scelta del diametro:
+$$d = 25\ \text{mm}$$
+**Controllo**:
+$$W_t = \frac{\pi \cdot d^3}{16} = \frac{3{,}14 \cdot 25^3}{16} = 3068\ \text{mm}^3$$
+
+$$\tau = \frac{M_t}{W_t} = \frac{200000}{3068} = 65{,}2\ \text{MPa} < \tau_{amm} = 94\ \text{MPa}$$
+La verifica è soddisfatta.
+
+---
+# Schema per un esercizio di verifica delle tensioni
+
+#### Tensione ammissibile
+
+$$\sigma_{amm} = \frac{R_e}{n} \qquad \tau_{amm} = \frac{0{,}6 \cdot R_e}{n}$$
+
+| Fase                                                    | Trazione                         | Taglio                                     | Flessione                          | Torsione                                   |
+| ------------------------------------------------------- | -------------------------------- | ------------------------------------------ | ---------------------------------- | ------------------------------------------ |
+| **1. Sollecitazione**                                   | $$F$$                            | $$F$$                                      | $$M_{f,max}$$                      | $$M_t = F \cdot b$$                        |
+| **2. Calcolo della sezione o del modulo di resistenza** | $$A$$                            | $$A$$                                      | $$W_f$$                            | $$W_t$$                                    |
+| **3. Tensione di lavoro**                               | $$\sigma = \frac{F}{A}$$         | $$\tau = \frac{F}{A}$$                     | $$\sigma = \frac{M_{f,max}}{W_f}$$ | $$\tau = \frac{M_t}{W_t}$$                 |
+| **4. Tensione ammissibile**                             | $$\sigma_{amm} = \frac{R_e}{n}$$ | $$\tau_{amm} = \frac{0{,}6 \cdot R_e}{n}$$ | $$\sigma_{amm} = \frac{R_e}{n}$$   | $$\tau_{amm} = \frac{0{,}6 \cdot R_e}{n}$$ |
+| **5. Confronto**                                        | $$\sigma \leq \sigma_{amm}$$     | $$\tau \leq \tau_{amm}$$                   | $$\sigma \leq \sigma_{amm}$$       | $$\tau \leq \tau_{amm}$$                   |
+
+
+# Schema per un esercizio di dimensionamento
+
+**Scelta del valore unificato**: ***SI ARROTONDA SEMPRE PER ECCESSO!!!***
+
+$$\sigma_{amm} = \frac{R_e}{n} \qquad \tau_{amm} = \frac{0{,}6 \cdot R_e}{n}$$
+| Trazione                                                       | Taglio                                                         | Flessione                                                                         | Torsione                                               |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| $$\frac{F}{A} \leq \sigma_{amm}$$                              | $$\frac{F}{A} \leq \tau_{amm}$$                                | $$\frac{M_{f,max}}{W_f} \leq \sigma_{amm}$$                                       | $$\frac{M_t}{W_t} \leq \tau_{amm}$$                    |
+| $$A \geq \frac{F}{\sigma_{amm}}$$                              | $$A \geq \frac{F}{\tau_{amm}}$$                                | $$W_f \geq \frac{M_{f,max}}{\sigma_{amm}}$$                                       | $$W_t \geq \frac{M_t}{\tau_{amm}}$$                    |
+| $$a \geq \sqrt{A}$$<br>$$d \geq \sqrt{\frac{4 \cdot A}{\pi}}$$ | $$a \geq \sqrt{A}$$<br>$$d \geq \sqrt{\frac{4 \cdot A}{\pi}}$$ | $$b \cdot h^2 \geq 6 \cdot W_f$$<br>$$d \geq \sqrt[3]{\frac{32 \cdot W_f}{\pi}}$$ | $$/$$<br>$$d \geq \sqrt[3]{\frac{16 \cdot W_t}{\pi}}$$ |
+
