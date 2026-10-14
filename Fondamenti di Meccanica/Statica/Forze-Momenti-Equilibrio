@@ -1,0 +1,132 @@
+
+### FORZA
+- Vettore (modulo, direzione, verso)
+- Unità di misura Newton (N)
+
+### MOMENTO DI UNA FORZA
+Il momento M di una forza F rispetto a un punto P è il vettore dato dal prodotto della forza per la distanza b fra il punto e la retta d’azione della forza.
+
+$$M=F \cdot b$$
+### Regola della mano destra
+
+![[Pasted image 20261014092526.png]]
+
+**Per capire i versi dei vettori Forza e Momento**
+
+1. **Scegli il punto** attorno a cui calcoli il momento.
+2. **Guarda la forza** e chiediti: _"In che verso la forza fa girare la trave attorno a quel punto?"_
+3. **Assegna il segno**: (MANO DESTRA: Le dita seguono il verso della Forza. Il pollice indica il verso del Momento)
+    - rotazione **antioraria**: $+$
+    - rotazione **oraria**: $-$
+4. **Usa sempre la stessa convenzione** per tutte le forze dello stesso esercizio.
+
+### VINCOLO
+Un corpo rigido si dice vincolato quando le sue possibilità di movimento sono impedite dal contatto di altri corpi detti vincoli.
+Ai vincoli si possono sostituire le loro azioni (reazioni vincolari) considerate come forze aggiunte al sistema di forze esterne applicato al corpo (forze attive). Lo studio dell’equilibrio del corpo vincolato si esegue co-me se fosse un corpo libero sollecitato da un sistema costituito dalle forze attive e dalle reazioni vincolari.
+
+### EQUILIBRIO STATICO
+#### *Condizione di equilibrio: la somma delle forze e dei momenti deve essere zero*
+
+Perché un corpo sia in equilibrio statico, non deve né traslare né iniziare a ruotare. 
+il corpo è in equilibrio o che le forze si equilibrano, cioè la loro somma è nulla.
+In un problema piano si usano queste condizioni:
+
+- **Equilibrio delle forze orizzontali:**$$ 
+  \sum F_x = 0
+   $$
+- **Equilibrio delle forze verticali:**
+$$ 
+  \sum F_y = 0
+   $$
+
+- **Equilibrio dei momenti rispetto a un punto:**
+$$
+  \sum M = 0
+  $$
+
+Il simbolo $$\sum$$significa “somma di tutte le grandezze considerate”. Le forze e i momenti con verso opposto si assegnano con segno opposto.
+
+**Attenzione:** non basta che la somma delle forze sia zero; per evitare la rotazione deve essere zero anche la somma dei momenti.
+
+### REAZIONI VINCOLARI
+
+Procedura da seguire:
+1. Disegnare la trave e indicare tutte le forze applicate.
+2. Indicare le reazioni vincolari nei supporti, scegliendone il verso iniziale.
+3. Scrivere le equazioni di equilibrio sum(F_x=0), sum(F_y=0) e sum(M=0).
+4. Risolvere le equazioni per trovare le reazioni incognite.
+
+Se una reazione risulta negativa, significa che il suo verso reale è opposto a quello ipotizzato nel disegno.
+
+### Esempio: trave appoggiata con forza al centro
+
+**Dati:**
+
+- Forza applicata:
+$$F=6\text{kN}=6000\text{N}$$ 
+- Distanza tra i supporti: 
+$$L=2000\,\text{mm}$$
+- La forza è applicata esattamente al centro.
+
+![[Pasted image 20261009152622.png|359]]
+
+Indichiamo con R_A la reazione del supporto sinistro e con R_B quella del supporto destro. Supponiamo entrambe dirette verso l'alto.
+
+![[Pasted image 20261009152713.png|360]]
+
+**Passo 1 – Equilibrio verticale**
+Prendendo positive le forze verso l'alto:$$
+\sum F_y=0
+$$$$
+R_A+R_B-F=0
+$$Quindi:
+$$R_A+R_B=F\,=6000\,\text{N}$$
+
+**Passo 2 – Equilibrio dei momenti**
+Scelgo un punto rispetto al quale calcolare i momenti.
+Calcoliamo i momenti rispetto al supporto A.
+$$
+\sum M_A=0$$
+![[Pasted image 20261009162443.png|483]]
+$$R_A\cdot 0+ R_B\cdot L-F\cdot\frac{L}{2}=0$$
+La reazione R_A non produce momento rispetto ad A perché il suo braccio è zero.
+
+$$R_B\cdot L-F\cdot\frac{L}{2}=0$$
+
+Ricaviamo R_B:
+$$R_B=\frac{F\cdot(L/2)}{L}=\frac{F}{2}$$
+
+$$R_B=3000\,\text{N}$$
+
+Dall'equilibrio verticale:
+
+$$R_A=F-R_B=6000-3000=3000\,\text{N}$$
+![[Pasted image 20261009154010.png|455]]
+**Risultato:** entrambe le reazioni valgono 3000N verso l'alto. 
+La loro somma è 6000N, uguale e contraria alla forza applicata.
+
+---
+
+### Esempio: Trave appoggiata con forza non centrata
+
+Trave orizzontale lunga **L = 2000 mm**, con **vincolo in A** (a sinistra) e **vincolo in B** (a destra). Applica una **forza F = 4 kN verso il basso** a **500 mm da A** (quindi a 1500 mm da B).
+
+![[Pasted image 20261009162033.png|458]]
+
+1. Converto: F = 4 kN = 4 000 N
+
+2. Reazioni. Equilibrio dei momenti rispetto ad A: 
+![[Pasted image 20261009162538.png|484]]
+
+$$\sum M =0$$
+$$R_B · 2 000 - 4 000 · 500 = 0$$
+quindi  
+$$R_B = 1 000 N$$
+
+Equilibrio verticale: 
+ $$\sum F_y =0$$
+ $$R_A + R_B - F = 0$$
+ $$R_A = 4 000 − 1 000 = 3 000 N$$
+
+---
+
