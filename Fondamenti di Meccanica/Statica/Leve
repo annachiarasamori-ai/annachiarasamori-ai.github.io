@@ -1,0 +1,272 @@
+# 1. LEVE
+
+## Macchine semplici
+
+- **Definizione**: dispositivo in grado di moltiplicare la forza umana.
+- **Forza resistente** $F_R$: la forza da vincere o equilibrare.
+- **Forza motrice** $F_M$: la forza fornita alla macchina.
+- **Vantaggio** $k$: rapporto tra forza resistente e forza motrice.
+
+$$k=\frac{F_R}{F_M} \qquad [D4.1]$$
+
+- **Classificazione** delle macchine:
+    - vantaggiose: $F_R > F_M$, con $k > 1$
+    - svantaggiose: $F_R < F_M$, con $k < 1$
+    - indifferenti: $F_R = F_M$, con $k = 1$
+- **Tipi di macchine semplici**:
+    - leve
+    - carrucole, paranchi, argani e verricelli
+    - piani inclinati e relative applicazioni (cunei e viti)
+- **Metodo di studio**: in prima approssimazione si trascura l'attrito e si applicano le equazioni cardinali della Statica.
+
+---
+
+## La leva
+
+Si distingue in base alla posizione delle forze rispetto all'appoggio (fulcro):
+
+- leva di primo genere
+- leva di secondo genere
+- leva di terzo genere
+
+Indicazioni valide per tutte le leve:
+
+- $b_R$ = braccio di $F_R$ rispetto al fulcro O
+- $b_M$ = braccio di $F_M$ rispetto al fulcro O
+
+---
+
+### Leva di primo genere
+
+![[Pasted image 20261012181114.png]]
+
+- **Posizione**: il fulcro è posto **tra** le due forze.
+- **Condizione di equilibrio**:
+ $$\sum M =0$$
+
+$$F_R  ·  b_R = F_M  ·  b_M$$
+
+- **Vantaggio**:
+
+$$\frac{F_R}{F_M}=\frac{b_M}{b_R}=k$$
+
+- **Casi possibili**:
+    - $b_M > b_R$ → $k > 1$: leva vantaggiosa
+    - $b_M < b_R$ → $k < 1$: leva svantaggiosa
+    - $b_M = b_R$ → $k = 1$: leva indifferente
+    
+- **Nota pratica**: conviene che il rapporto $b_M/b_R$ sia il più grande possibile.
+- **Esempi**: palanchino [fig. D4.3], forbici, pinze.
+
+![[Pasted image 20261012181202.png]]
+
+---
+
+### Leva di secondo genere
+
+![[Pasted image 20261012181241.png]]
+
+- **Posizione**: il fulcro è a un'estremità, la forza motrice $F_M$ è applicata all'estremità opposta (la resistenza sta in mezzo).
+- **Equilibrio** (dalle [D4.2] e [D4.1]):
+ $$\sum M =0$$
+
+$$F_R  ·  b_R = F_M  ·  b_M$$
+
+$$\frac{F_R}{F_M}=\frac{b_M}{b_R}=k$$
+
+- **Caratteristica**: $F_M \le F_R$, quindi la leva è **sempre vantaggiosa** o al massimo indifferente, mai svantaggiosa.
+- **Nota pratica**: conviene che $b_M$ sia il più grande possibile rispetto a $b_R$.
+- **Esempi**: carriola [fig. D4.5], schiaccianoci.
+
+![[Pasted image 20261012181320.png|443]]
+
+---
+
+### Leva di terzo genere
+
+![[Pasted image 20261012181351.png|428]]
+
+- **Posizione**: la forza motrice è posta **tra** il fulcro e la forza resistente.
+- **Equilibrio**:
+ $$\sum M =0$$
+
+$$F_R  ·  b_R = F_M  ·  b_M$$
+
+$$F_R = F_M , \frac{b_M}{b_R}$$
+
+$$k=\frac{b_M}{b_R}<1$$
+
+- **Caratteristica**: poiché $b_M < b_R$, la leva è **sempre svantaggiosa** ($k < 1$).
+- **Esempio**: leva di terzo genere azionata da un pistone idraulico, che sfrutta la grande forza del pistone per sollevare il carico.
+
+---
+
+## Schema riassuntivo
+
+| Genere      | Posizione del fulcro / forze | Vantaggio                                    | Esempi                     |
+| ----------- | ---------------------------- | -------------------------------------------- | -------------------------- |
+| **Primo**   | Fulcro tra $F_R$ e $F_M$     | $k>1$, $k<1$ o $k=1$ in base a $b_M$ e $b_R$ | palanchino, forbici, pinze |
+| **Secondo** | $F_R$ tra fulcro e $F_M$     | Sempre $k \ge 1$                             | carriola, schiaccianoci    |
+| **Terzo**   | $F_M$ tra fulcro e $F_R$     | Sempre $k<1$                                 | leva con pistone idraulico |
+
+---
+
+## APPLICAZIONI DELLA LEVA: CARRUCOLE, PARANCHI, VERRICELLI E ARGANI
+
+
+## Carrucola fissa [fig. D4.8]
+
+![[Pasted image 20261012190640.png]]
+
+- **Equilibrio dei momenti** rispetto al punto O:
+
+$$F_R \cdot R = F_M \cdot R$$
+
+- **Risultato**:
+
+$$F_R = F_M \qquad k = 1$$
+
+- **Tipo di macchina**: indifferente (non c'è vantaggio di forza).
+- **Utilità**: permette di sollevare carichi ad altezze che dipendono solo dal punto in cui è appesa la carrucola.
+
+---
+
+## Carrucola mobile [fig. D4.9]
+
+![[Pasted image 20261012190713.png]]
+
+- **Funzionamento**: un'estremità della fune è fissata a un sostegno fisso, all'altra estremità è applicata la forza motrice. In genere è abbinata a una carrucola fissa.
+
+- **Equilibrio dei momenti** rispetto al punto O:
+
+$$F_R \cdot R - F_M \cdot 2R = 0$$
+
+- **Risultato**:
+
+$$F_M = \frac{F_R}{2} \qquad k = \frac{F_R}{F_M} = 2$$
+
+- **Tipo di macchina**: vantaggiosa (la forza necessaria è la metà del carico).
+
+---
+
+## Paranco semplice e multiplo
+
+![[Pasted image 20261012190802.png|269]]
+
+- **Paranco semplice** [fig. D4.10a]: abbinamento di una carrucola mobile con una fissa.
+
+$$k = 2$$
+
+- **Paranco multiplo (taglia)** [fig. D4.10b]: abbinamento di più carrucole fisse e mobili (esempio in figura: tre fisse e tre mobili).
+    - Con $n$ carrucole mobili si ottiene abbinando $n$ paranchi semplici.
+
+$$k = 2n$$
+
+---
+
+## Verricello [fig. D4.11]
+
+![[Pasted image 20261012190923.png]]
+
+- **Struttura**: cilindro orizzontale di raggio $R$ su cui si avvolge una fune; un'estremità è fissata al cilindro, l'altra al carico $F_R$.
+- **Azionamento**: manuale, tramite una manovella di lunghezza $b_M$.
+- **Equilibrio dei momenti**:
+
+$$F_M \cdot b_M - F_R \cdot R = 0$$
+
+- **Vantaggio**:
+
+$$F_R = F_M \cdot \frac{b_M}{R} \qquad k = \frac{F_R}{F_M} = \frac{b_M}{R}$$
+
+- **Conclusione**: più la manovella è lunga rispetto al raggio del cilindro, maggiore è il vantaggio.
+
+---
+
+## Argano [fig. D4.12]
+
+![[Pasted image 20261012190944.png]]
+
+- **Differenze rispetto al verricello**:
+    - asse di rotazione **verticale**
+    - provvisto di **due o quattro barre di manovra**
+- **Dati**:
+    - $z$ = numero di forze applicate alle barre di manovra
+    - $F_{1M}$ = forza applicata su ogni barra
+    - $b_M$ = distanza di applicazione (lunghezza utile della barra)
+    - $R$ = raggio dell'argano
+- **Equilibrio dei momenti**:
+
+$$z \cdot F_{1M} \cdot b_M = F_R \cdot R$$
+
+- **Forza resistente equilibrata**:
+
+$$F_R = \frac{z \cdot F_{1M} \cdot b_M}{R}$$
+
+- **Vantaggio**:
+
+$$k = \frac{F_R}{F_{1M}} = \frac{z \cdot b_M}{R}$$
+
+- **Conclusione**: il vantaggio aumenta con il numero di barre di manovra utilizzate.
+
+---
+
+## Esempio svolto (argano)
+
+- **Dati**: $z = 3$ uomini, $F_{1M} = 300$ N, $b_M = 1$ m, $R = 0{,}40$ m.
+- **Forza resistente equilibrata**:
+
+$$F_R = \frac{3 \cdot 300 \cdot 1}{0{,}40} = 2250 \text{ N}$$
+
+- **Vantaggio** (con $F_M = z \cdot F_{1M} = 3 \cdot 300 = 900$ N, forza motrice totale):
+
+$$k = \frac{F_R}{F_M} = \frac{2250}{900} = 2{,}5$$
+
+---
+
+## Schema riassuntivo
+
+|Macchina|Vantaggio $k$|Tipo|
+|---|---|---|
+|Carrucola fissa|$k = 1$|indifferente|
+|Carrucola mobile|$k = 2$|vantaggiosa|
+|Paranco semplice|$k = 2$|vantaggioso|
+|Paranco multiplo ($n$ carrucole mobili)|$k = 2n$|vantaggioso|
+|Verricello|$k = \dfrac{b_M}{R}$|vantaggioso se $b_M > R$|
+|Argano|$k = \dfrac{z \cdot b_M}{R}$|vantaggioso se $z \cdot b_M > R$|
+
+
+---
+
+## 3. Esempi di leve
+
+### Leva di primo genere
+
+**Dati:** $$F_R = 1000\ \text{N}$$ [fig. D4.16]. **Richiesto:** F<sub>M</sub> e k.
+
+![[Pasted image 20261013105350.png]]
+
+Dalla [D4.2]:
+
+$$1000 \cdot 0{,}2 = F_M \cdot 1{,}25$$
+
+$$F_M = \frac{1000 \cdot 0{,}2}{1{,}25} = 160\ \text{N}$$
+
+$$k = \frac{b_M}{b_R} = \frac{1{,}25}{0{,}2} = 6{,}25$$
+
+### Leva di secondo genere
+
+**Dati:** $F_M = 150N$ [fig. D4.17]. 
+
+**Richiesto:** F<sub>R</sub> e k.
+
+![[Pasted image 20261013105429.png]]
+
+Dalla [D4.2]:
+
+$$150 \cdot 1 = F_R \cdot 0{,}25$$
+
+$$F_R = \frac{150}{0{,}25} = 600\ \text{N}$$
+
+Dalla [D4.1]:
+
+$$k = \frac{1}{0{,}25} = 4$$
