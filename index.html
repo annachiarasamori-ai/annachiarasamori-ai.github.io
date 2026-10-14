@@ -3,94 +3,355 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IngR2D2 | Archivio tecnico galattico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="IngR2D2: il tuo archivio di appunti, schemi, disegni tecnici e mappe.">
+  <title>IngR2D2 | Archivio tecnico</title>
+
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --nero: #111111;
+      --grigio: #303030;
+      --grigio-chiaro: #bdbdbd;
+      --giallo: #ffd400;
+      --blu: #168bff;
+      --fucsia: #ff36b5;
+      --bianco: #f5f5f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1118;
-      color: #edf4fa;
+      background-color: var(--nero);
+      color: var(--bianco);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
     header {
-      padding: 55px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #132b40, #101820);
-      border-bottom: 1px solid #29445b;
+      border-bottom: 1px solid #393939;
+      background: #171717;
     }
 
-    header h1 {
-      margin: 0;
-      color: #76d7ff;
-      font-size: clamp(2.5rem, 8vw, 4rem);
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      padding-bottom: 12px;
     }
 
-    header p { color: #c0d2df; }
+    .logo {
+      color: var(--giallo);
+      font-size: 1.65rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
 
-    main {
-      max-width: 900px;
-      margin: 35px auto;
-      padding: 0 20px;
+    .logo span {
+      color: var(--bianco);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--bianco);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--giallo);
+    }
+
+    .hero {
+      padding: 85px 0 75px;
+      background-image:
+        linear-gradient(#ffffff08 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+      background-size: 32px 32px;
+      border-bottom: 3px solid var(--giallo);
+    }
+
+    .eyebrow {
+      color: var(--blu);
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(3rem, 9vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: -3px;
+    }
+
+    h1 span {
+      color: var(--giallo);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #d0d0d0;
+      font-size: 1.15rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 2px solid var(--giallo);
+      border-radius: 5px;
+      background: var(--giallo);
+      color: var(--nero);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: transparent;
+      color: var(--giallo);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--bianco);
+      border-color: var(--blu);
+    }
+
+    .button.secondary:hover {
+      background: var(--blu);
+      color: white;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-label {
+      color: var(--fucsia);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin: 5px 0 12px;
+    }
+
+    .intro {
+      color: var(--grigio-chiaro);
+      max-width: 650px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
+      margin-top: 30px;
     }
 
     .card {
-      background: #131e29;
-      border: 1px solid #2b4052;
-      border-radius: 14px;
-      padding: 22px;
+      display: block;
+      padding: 24px;
+      min-height: 190px;
+      background: var(--grigio);
+      border: 1px solid #484848;
+      border-top: 4px solid var(--giallo);
+      border-radius: 7px;
+      text-decoration: none;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .card h2 { color: #76d7ff; }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blu);
+    }
+
+    .card .symbol {
+      font-size: 1.8rem;
+    }
+
+    .card h3 {
+      margin: 12px 0 6px;
+      color: var(--giallo);
+    }
+
+    .card p {
+      margin: 0;
+      color: #d0d0d0;
+      font-size: 0.95rem;
+    }
+
+    .notice {
+      padding: 24px;
+      background: #202020;
+      border-left: 4px solid var(--fucsia);
+      border-radius: 5px;
+    }
+
+    .notice p {
+      color: #d0d0d0;
+      margin-bottom: 0;
+    }
 
     footer {
-      text-align: center;
-      padding: 25px;
-      color: #9aabba;
+      padding: 25px 0;
+      background: #080808;
+      border-top: 1px solid #393939;
+      color: #aaa;
       font-size: 0.9rem;
+    }
+
+    footer strong {
+      color: var(--giallo);
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 0;
+      }
+
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 14px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>🤖 IngR2D2</h1>
-    <p>Il tuo archivio tecnico galattico.</p>
-    <p>Appunti, schemi, disegni e risorse per studenti.</p>
+    <div class="container navbar">
+      <a class="logo" href="#home">Ing<span>R2D2</span>.</a>
+
+      <nav aria-label="Navigazione principale">
+        <a href="#home">Home</a>
+        <a href="#materiali">Materiali</a>
+        <a href="#progetto">Il progetto</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h2>Esplora l'archivio</h2>
-    <div class="grid">
-      <section class="card">
-        <h2>📐 Disegno tecnico</h2>
-        <p>Tavole, esercizi e disegni da consultare e scaricare.</p>
-      </section>
-      <section class="card">
-        <h2>📚 Appunti e dispense</h2>
-        <p>Materiali scolastici organizzati per materia.</p>
-      </section>
-      <section class="card">
-        <h2>🗺️ Schemi e mappe</h2>
-        <p>Riassunti, diagrammi e mappe concettuali.</p>
-      </section>
-      <section class="card">
-        <h2>⚙️ Progetti tecnici</h2>
-        <p>Progetti, esercitazioni e risorse utili.</p>
-      </section>
-    </div>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">// Archivio tecnico digitale</div>
+
+        <h1>Benvenuti su<br><span>IngR2D2</span></h1>
+
+        <p>
+          Il tuo archivio nerd di materiali tecnici:
+          appunti, schemi, disegni e mappe per studiare,
+          ripassare e trovare tutto in un unico posto.
+        </p>
+
+        <div class="buttons">
+          <a class="button" href="#materiali">Esplora i materiali ↓</a>
+          <a class="button secondary" href="#progetto">Scopri il progetto</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="materiali">
+      <div class="container">
+        <div class="section-label">// Database scolastico</div>
+        <h2>Il tuo arsenale di studio.</h2>
+
+        <p class="intro">
+          Scegli una categoria e organizza il tuo percorso.
+          I collegamenti ai materiali verranno aggiunti man mano.
+        </p>
+
+        <div class="grid">
+          <a class="card" href="#progetto">
+            <div class="symbol">▤</div>
+            <h3>Appunti</h3>
+            <p>Riassunti, dispense e appunti delle lezioni.</p>
+          </a>
+
+          <a class="card" href="#progetto">
+            <div class="symbol">⌘</div>
+            <h3>Schemi e formule</h3>
+            <p>Formule, diagrammi e schemi per il ripasso.</p>
+          </a>
+
+          <a class="card" href="#progetto">
+            <div class="symbol">⌗</div>
+            <h3>Disegno tecnico</h3>
+            <p>Tavole, disegni ed esercizi tecnici.</p>
+          </a>
+
+          <a class="card" href="#progetto">
+            <div class="symbol">◎</div>
+            <h3>Mappe e risorse</h3>
+            <p>Mappe concettuali e materiali utili.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="progetto">
+      <div class="container">
+        <div class="section-label">// Missione</div>
+        <h2>Un progetto fatto per studiare meglio.</h2>
+
+        <div class="notice">
+          <strong>🤖 IngR2D2 — archivio in costruzione</strong>
+          <p>
+            Questo spazio nasce per raccogliere e condividere
+            materiali scolastici in modo semplice e ordinato.
+            Le risorse saranno aggiunte progressivamente.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    IngR2D2 · Un archivio in continua costruzione 🚀
+    <div class="container">
+      <strong>IngR2D2</strong> · Archivio tecnico digitale
+      <br>
+      Fatto con curiosità, appunti e un pizzico di nerdaggine.
+    </div>
   </footer>
 </body>
 </html>
